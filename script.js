@@ -72,19 +72,6 @@ if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
   });
 }
 
-const transformCards = [...document.querySelectorAll('[data-transform-card]')];
-if (transformCards.length) {
-  const transformObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const index = transformCards.indexOf(entry.target);
-        transformCards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
-      }
-    });
-  }, { threshold: .62 });
-  transformCards.forEach((card) => transformObserver.observe(card));
-}
-
 const filterButtons = document.querySelectorAll('[data-filter]');
 const galleryItems = document.querySelectorAll('.gallery-item');
 filterButtons.forEach((button) => button.addEventListener('click', () => {
