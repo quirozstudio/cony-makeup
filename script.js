@@ -1,6 +1,7 @@
 const body = document.body;
 const header = document.querySelector('[data-header]');
 const menuToggle = document.querySelector('.menu-toggle');
+const persistentCta = document.querySelector('.persistent-cta');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const makeupIntro = document.querySelector('[data-makeup-intro]');
 
@@ -28,6 +29,18 @@ document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener
   body.classList.remove('menu-open');
   menuToggle?.setAttribute('aria-expanded', 'false');
 }));
+
+if (persistentCta) {
+  const visibleCtaZones = new Set();
+  const ctaZoneObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visibleCtaZones.add(entry.target);
+      else visibleCtaZones.delete(entry.target);
+    });
+    persistentCta.classList.toggle('is-suppressed', visibleCtaZones.size > 0);
+  }, { threshold: .03 });
+  document.querySelectorAll('#contacto, .site-footer').forEach((zone) => ctaZoneObserver.observe(zone));
+}
 
 let lastScroll = 0;
 window.addEventListener('scroll', () => {

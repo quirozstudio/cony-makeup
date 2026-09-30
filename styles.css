@@ -45,3 +45,64 @@ body.intro-active{overflow:hidden}.makeup-intro{position:fixed;inset:0;z-index:3
 /* Clear, non-repeating character showcase for chapter 03. */
 .transform-section{padding-bottom:11rem}.transform-section .transform-intro{display:grid;grid-template-columns:1.25fr .45fr;gap:7vw;align-items:end;padding-bottom:5rem}.transform-section .transform-intro>div>.eyebrow{margin-bottom:1.2rem}.transform-section .transform-intro h2{font-size:clamp(3.7rem,7.5vw,8.2rem)}.transform-lede{max-width:310px;margin:0 0 .4rem;color:#aaa59e;font-family:var(--serif);font-size:1.2rem;line-height:1.48}.transform-showcase{width:min(1180px,84vw);margin:0 auto;display:grid;grid-template-columns:1.22fr .78fr;gap:1.25rem}.transform-feature{position:relative;height:820px;margin:0;overflow:hidden;background:#1a1112}.transform-feature>img{object-position:center 28%}.transform-feature-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,7,7,.82),transparent 58%),linear-gradient(90deg,rgba(7,7,7,.23),transparent 55%)}.transform-feature-copy{position:absolute;left:2rem;right:2rem;bottom:2rem;z-index:2}.transform-feature-copy>span,.transform-character span{display:block;margin-bottom:.75rem;color:var(--accent);text-transform:uppercase;font-size:.53rem;letter-spacing:.17em}.transform-feature-copy h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(3.7rem,6vw,6.8rem);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}.transform-feature-copy p{margin:1.3rem 0 0;max-width:250px;color:#d0cac1;font-family:var(--serif);font-size:1rem}.transform-rail{display:grid;grid-template-rows:repeat(3,1fr);gap:1.25rem}.transform-character{min-height:0;margin:0;display:grid;grid-template-columns:.85fr 1.15fr;overflow:hidden;background:#181818;border:1px solid rgba(232,229,223,.08)}.transform-character>img{min-width:0;object-position:center 24%}.transform-character>div{padding:1.4rem;display:flex;flex-direction:column;justify-content:flex-end}.transform-character h3{margin:0;font-family:var(--serif);font-weight:400;font-size:2rem;line-height:.95;letter-spacing:-.04em;text-transform:uppercase}.transform-character p{margin:.8rem 0 0;color:#928e87;font-family:var(--serif);font-size:.88rem;line-height:1.35}
 @media (max-width:800px){.transform-section{padding-bottom:8rem}.transform-section .transform-intro{display:block;padding-bottom:3.5rem}.transform-section .transform-intro h2{font-size:clamp(3.7rem,15vw,6.3rem)}.transform-lede{margin-top:2rem;max-width:260px;font-size:1.05rem}.transform-showcase{width:calc(100% - 2.5rem);display:block}.transform-feature{height:68svh;min-height:520px}.transform-feature-copy{left:1.25rem;right:1.25rem;bottom:1.5rem}.transform-feature-copy h3{font-size:clamp(3.8rem,16vw,6rem)}.transform-rail{display:flex;gap:.75rem;margin-top:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.65rem;scrollbar-width:none}.transform-rail::-webkit-scrollbar{display:none}.transform-character{flex:0 0 84vw;height:265px;grid-template-columns:.82fr 1.18fr;scroll-snap-align:start}.transform-character>div{padding:1.1rem}.transform-character h3{font-size:1.7rem}.transform-character p{font-size:.82rem}}
+
+/* Mobile QA: protect typography, copy and CTAs from clipping or visual overlap. */
+@media (max-width:800px){
+  .hero h1,
+  .display-copy,
+  .art-heading h2,
+  .makeup-film-copy h2,
+  .nails-heading h2,
+  .social-copy h2,
+  .archive h2,
+  .about-copy h2,
+  .contact-inner h2{font-size:clamp(3rem,14.5vw,6.5rem);line-height:.88}
+
+  .hero-copy{bottom:8rem}
+  .section-kicker{gap:1rem}
+  .section-kicker span:last-child{text-align:right}
+
+  .makeup-film-copy{width:100%;min-width:0;padding:0 1.25rem 8vh}
+  .makeup-film-shade{background:linear-gradient(0deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.62) 58%,rgba(5,5,5,.2) 100%)}
+  .makeup-film-copy .eyebrow{max-width:15rem;color:#eee8df;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+  .makeup-film-copy h2,.makeup-film-copy>p:not(.eyebrow){text-shadow:0 2px 20px rgba(0,0,0,.86)}
+
+  .transform-section .transform-intro h2{font-size:clamp(3rem,13.8vw,6rem);line-height:.88}
+  .transform-feature-copy h3{font-size:clamp(3rem,14vw,5rem);line-height:.86}
+
+  .social-section{padding-bottom:0}
+  .social-layout{min-height:0;display:flex;flex-direction:column;padding:4.75rem 0 7rem}
+  .social-copy{position:relative;inset:auto;width:100%;padding:0;z-index:2}
+  .social-copy>p:not(.eyebrow){max-width:18rem}
+  .social-image{position:relative;inset:auto;width:86%;height:430px;margin:3.5rem 0 0 auto;z-index:1}
+  .social-detail{position:relative;inset:auto;width:40%;height:190px;margin:-72px auto 0 0;z-index:2;border:.5rem solid var(--ink)}
+
+  .about{padding-bottom:0}
+  .about-layout{min-height:0;display:flex;flex-direction:column;padding:3rem 0 7rem}
+  .about-image{position:relative;inset:auto;width:78%;height:480px;margin:0}
+  .about-copy{position:relative;inset:auto;width:92%;margin:3.5rem 0 0 auto;padding-right:4rem}
+  .about-copy h2{margin-bottom:2rem}
+
+  .persistent-cta{right:.75rem;bottom:.75rem;width:3.25rem;height:3.25rem;padding:0;justify-content:center;gap:0;border-radius:50%;font-size:0}
+  .persistent-cta::before{content:'WA';font-size:.56rem;font-weight:600;letter-spacing:.08em}
+  .persistent-cta span{display:none}
+
+  .contact-links{padding-bottom:5rem}
+  .contact-links>div:last-child{padding-right:3.75rem}
+  .site-footer{padding-bottom:5rem}
+}
+
+@media (max-width:340px){
+  .hero h1,.display-copy,.art-heading h2,.makeup-film-copy h2,.nails-heading h2,.social-copy h2,.archive h2,.about-copy h2,.contact-inner h2{font-size:2.85rem}
+  .transform-section .transform-intro h2,.transform-feature-copy h3{font-size:2.85rem}
+  .section-kicker{font-size:.46rem;letter-spacing:.13em}
+}
+
+.persistent-cta{transition:background .3s ease,transform .3s var(--ease),box-shadow .3s ease,opacity .25s ease,visibility .25s ease}
+.persistent-cta.is-suppressed{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(.75rem)}
+
+@media (max-width:800px){
+  .social-image span{left:auto;right:1rem;text-align:right}
+  .nail-side{top:235px;width:38%;height:230px}
+  .nail-side figcaption{font-size:.48rem;line-height:1.35}
+}
