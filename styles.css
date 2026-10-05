@@ -106,3 +106,87 @@ body.intro-active{overflow:hidden}.makeup-intro{position:fixed;inset:0;z-index:3
   .nail-side{top:235px;width:38%;height:230px}
   .nail-side figcaption{font-size:.48rem;line-height:1.35}
 }
+
+/* Mobile overlap hardening: keep every text block clear of layered media. */
+@media (max-width:800px){
+  body.menu-open .persistent-cta{opacity:0;visibility:hidden;pointer-events:none;transition:none}
+  .persistent-cta.is-suppressed{transition:none}
+  .display-copy{font-size:clamp(3rem,13.8vw,6.5rem)}
+
+  .art-canvas{
+    min-height:0;
+    display:grid;
+    grid-template-columns:minmax(0,1.7fr) minmax(5.5rem,.65fr);
+    grid-template-areas:
+      "primary secondary"
+      "copy copy"
+      "video detail";
+    column-gap:.65rem;
+    align-items:start;
+  }
+  .art-primary{
+    position:relative;
+    grid-area:primary;
+    left:auto;
+    top:auto;
+    width:100%;
+    height:auto;
+  }
+  .art-primary img{height:clamp(27rem,145vw,34rem)}
+  .art-secondary{
+    position:relative;
+    grid-area:secondary;
+    right:auto;
+    top:auto;
+    width:100%;
+    height:auto;
+    margin-top:10rem;
+  }
+  .art-secondary img{height:clamp(14rem,78vw,18rem)}
+  .art-copy{
+    position:relative;
+    grid-area:copy;
+    left:auto;
+    top:auto;
+    width:min(15rem,100%);
+    padding:2.25rem 0 2.5rem;
+  }
+  .art-video{
+    position:relative;
+    grid-area:video;
+    left:auto;
+    bottom:auto;
+    width:100%;
+    height:auto;
+  }
+  .art-video video{height:clamp(10.5rem,58vw,14rem)}
+  .art-detail{
+    position:relative;
+    grid-area:detail;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    height:auto;
+    margin-top:2.5rem;
+  }
+  .art-detail img{height:clamp(9rem,48vw,12rem)}
+
+  .transform-character{height:290px;min-height:290px}
+
+  .nail-main figcaption,.nail-side figcaption{
+    max-width:100%;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .nail-side figcaption{text-align:right;letter-spacing:.08em}
+
+  .contact:before{transform:none}
+}
+
+@media (max-width:520px){
+  .display-copy{font-size:clamp(2.55rem,13vw,4.5rem);line-height:.9}
+}
+
+@media (max-width:800px) and (orientation:landscape){
+  .transform-character{height:305px;min-height:305px}
+}
