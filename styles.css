@@ -101,6 +101,19 @@ body.intro-active{overflow:hidden}.makeup-intro{position:fixed;inset:0;z-index:3
 .persistent-cta{transition:background .3s ease,transform .3s var(--ease),box-shadow .3s ease,opacity .25s ease,visibility .25s ease}
 .persistent-cta.is-suppressed{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(.75rem)}
 
+/* Creator credit: a quiet signature that keeps Constanza's brand in focus. */
+.site-footer{display:grid;grid-template-columns:minmax(12rem,1fr) auto auto;gap:2rem 4rem}
+.quiroz-signature{grid-column:1/-1;display:flex;justify-content:flex-end;align-items:center;gap:.65rem;margin-top:.5rem;padding-top:1.15rem;border-top:1px solid var(--line-dark);color:#77736d;text-transform:uppercase;font-size:.5rem;letter-spacing:.14em;transition:color .3s ease}
+.quiroz-signature strong{color:var(--ink);font-size:.62rem;letter-spacing:.2em;transition:color .3s ease,transform .35s var(--ease)}
+.quiroz-signature:hover,.quiroz-signature:focus-visible{color:var(--ink)}
+.quiroz-signature:hover strong,.quiroz-signature:focus-visible strong{color:#9a7850;transform:translateX(.18rem)}
+.quiroz-signature:focus-visible{outline:1px solid var(--ink);outline-offset:.45rem}
+
+@media (max-width:800px){
+  .site-footer{grid-template-columns:1fr 1fr;gap:2rem}
+  .quiroz-signature{grid-column:1/-1;justify-content:flex-start;min-height:2.75rem;margin-top:0;padding-top:1.35rem;line-height:1.45}
+}
+
 @media (max-width:800px){
   .social-image span{left:auto;right:1rem;text-align:right}
   .nail-side{top:235px;width:38%;height:230px}
